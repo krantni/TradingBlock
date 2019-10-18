@@ -1,0 +1,29 @@
+{
+    "extends": [
+        "tslint-config-airbnb",
+        "tslint-config-prettier",
+        "tslint-config-prettier",
+        "tslint-plugin-prettier"
+    ],
+    "rules": {
+        "no-any":false,
+        "import-name": false,
+        "strict-boolean-expressions": false,
+        "prettier":[
+            true,
+            {
+                "printWidth":90,
+                "singleQuote":true,
+                "trailingComma":"all"
+            }
+        ],
+        "variable-name":[
+            true,
+            "check-format",
+            "allow-pascal-case"
+        ]
+    },
+    "jsRules": {
+        "no-eval":true
+    }
+  }

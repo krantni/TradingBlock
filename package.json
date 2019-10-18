@@ -7,8 +7,11 @@
     "@types/node": "12.11.1",
     "@types/react": "16.9.9",
     "@types/react-dom": "16.9.2",
+    "@types/react-router-dom": "^4.3.4",
+    "axios": "^0.19.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-router-dom": "^4.4.0-beta.8",
     "react-scripts": "3.2.0",
     "typescript": "3.6.4"
   },
@@ -16,7 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "tslint": "tslint --fix --project ./tsconfig.json"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -32,5 +36,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2",
+    "tslint": "^5.18.0",
+    "tslint-config-airbnb": "~5.7.0",
+    "tslint-config-prettier": "~1.9.0",
+    "tslint-plugin-prettier": "~2.0.1",
+    "tslint-react": "^3.6.0"
   }
 }
