@@ -9,7 +9,7 @@ import SleeperLeagueIdImage from './images/sleeperleagueid.png';
 import { tradingBlockReducer, initialState } from './TradingBlock.util';
 import { TradingBlockState } from './utils/types';
 
-const TradingBlock = ({ match }: Props) => {
+const TradingBlock = ({ match, history }: Props) => {
   const initialTradingState: TradingBlockState = match.params.id
     ? { ...initialState, leagueId: match.params.id, isLoading: true }
     : initialState;
@@ -32,6 +32,7 @@ const TradingBlock = ({ match }: Props) => {
       const leagueRosterPromise = fetchLeagueRosters(leagueId);
       Promise.all([leagueUserPromise, leagueRosterPromise])
         .then(([teamOwners, rosters]) => {
+          history.push(`/${leagueId}`);
           if (teamOwners && rosters) {
             teamOwners.forEach(owner => {
               const roster = rosters.find(roster => {
@@ -58,6 +59,7 @@ const TradingBlock = ({ match }: Props) => {
             <>
               <Arrow
                 onClick={() => {
+                  history.push(`/`);
                   dispatch({ type: 'RESET' });
                 }}
               />
@@ -119,6 +121,7 @@ const TradingBlock = ({ match }: Props) => {
 
 export interface Props {
   match: any;
+  history: any;
 }
 
 export default TradingBlock;
