@@ -33593,5 +33593,165 @@
         "name": "Derrick Kelly II",
         "position": "None",
         "team": "NO"
+    },
+    "WAS": {
+        "name":"Washington Redskins",
+        "position": "D/ST",
+        "team": "WAS"
+    },
+    "ARI": {
+        "name":"Arizona Cardinals",
+        "position": "D/ST",
+        "team": "ARI"
+    },
+    "ATL": {
+        "name":"Atlanta Falcons",
+        "position": "D/ST",
+        "team": "ATL"
+    },
+    "TEN": {
+        "name":"Tennessee Titans",
+        "position": "D/ST",
+        "team": "TEN"
+    },
+    "LAR": {
+        "name":"Los Angeles Rams",
+        "position": "D/ST",
+        "team": "LAR"
+    },
+    "PIT": {
+        "name":"Pittsburgh Steelers",
+        "position": "D/ST",
+        "team": "PIT"
+    },
+    "NE": {
+        "name":"New England Patriots",
+        "position": "D/ST",
+        "team": "NE"
+    },
+    "CLE": {
+        "name":"Cleveland Browns",
+        "position": "D/ST",
+        "team": "CLE"
+    },
+    "SEA": {
+        "name":"Seattle Seahawks",
+        "position": "D/ST",
+        "team": "SEA"
+    },
+    "HOU": {
+        "name":"Houston Texans",
+        "position": "D/ST",
+        "team": "HOU"
+    },
+    "OAK": {
+        "name":"Oakland Raiders",
+        "position": "D/ST",
+        "team": "OAK"
+    },
+    "LAC": {
+        "name":"Los Angeles Chargers",
+        "position": "D/ST",
+        "team": "LAC"
+    },
+    "BAL": {
+        "name":"Baltimore Ravens",
+        "position": "D/ST",
+        "team": "BAL"
+    },
+    "PHI": {
+        "name":"Philadelphia Eagles",
+        "position": "D/ST",
+        "team": "PHI"
+    },
+    "JAX": {
+        "name":"Jacksonville Jaguars",
+        "position": "D/ST",
+        "team": "JAX"
+    },
+    "GB": {
+        "name":"Green Bay Packers",
+        "position": "D/ST",
+        "team": "GB"
+    },
+    "NYG": {
+        "name":"New York Giants",
+        "position": "D/ST",
+        "team": "NYG"
+    },
+    "IND": {
+        "name":"Indianapolis Colts",
+        "position": "D/ST",
+        "team": "IND"
+    },
+    "NYJ": {
+        "name":"New York Jets",
+        "position": "D/ST",
+        "team": "NYJ"
+    },
+    "CIN": {
+        "name":"Cincinnati Bengals",
+        "position": "D/ST",
+        "team": "CIN"
+    },
+    "MIA": {
+        "name":"Miami Dolphins",
+        "position": "D/ST",
+        "team": "MIA"
+    },
+    "CAR": {
+        "name":"Carolina Panthers",
+        "position": "D/ST",
+        "team": "CAR"
+    },
+    "NO": {
+        "name":"New Orleans Saints",
+        "position": "D/ST",
+        "team": "NO"
+    },
+    "SF": {
+        "name":"San Francisco 49ers",
+        "position": "D/ST",
+        "team": "SF"
+    },
+    "DAL": {
+        "name":"Dallas Cowboys",
+        "position": "D/ST",
+        "team": "DAL"
+    },
+    "DEN": {
+        "name":"Denver Broncos",
+        "position": "D/ST",
+        "team": "DEN"
+    },
+    "TB": {
+        "name":"Tampa Bay Buccaneers",
+        "position": "D/ST",
+        "team": "TB"
+    },
+    "CHI": {
+        "name":"Chicago Bears",
+        "position": "D/ST",
+        "team": "CHI"
+    },
+    "KC": {
+        "name":"Kansas City Chiefs",
+        "position": "D/ST",
+        "team": "KC"
+    },
+    "BUF": {
+        "name":"Buffalo Bills",
+        "position": "D/ST",
+        "team": "BUF"
+    },
+    "MIN": {
+        "name":"Minnesota Vikings",
+        "position": "D/ST",
+        "team": "MIN"
+    },
+    "DET": {
+        "name":"Detriot Lions",
+        "position": "D/ST",
+        "team": "DET"
     }
 }

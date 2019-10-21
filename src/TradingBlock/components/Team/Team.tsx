@@ -11,6 +11,9 @@ const Team = ({ owner }: Props) => {
           {owner.players
             .filter(player => player.isOnTradeBlock)
             .map(player => {
+              if (player.position === 'D/ST') {
+                return <div key={player.id}>{`${player.name} - ${player.position}`}</div>;
+              }
               return (
                 <div
                   key={player.id}

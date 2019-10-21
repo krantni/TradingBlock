@@ -23,6 +23,7 @@ const TradingBlock = ({ match, history }: Props) => {
     if (match.params.id) {
       getLeagueTradingBlock();
     }
+    // eslint-disable-next-line
   }, []);
 
   const getLeagueTradingBlock = () => {
@@ -46,11 +47,10 @@ const TradingBlock = ({ match, history }: Props) => {
           }
         })
         .catch(err => {
-          dispatch({ type: 'SET_ERROR', error: err.errorMessage });
+          dispatch({ type: 'SET_ERROR', error: err.message });
         });
     }
   };
-  console.log('render');
   return (
     <div className={styles.container}>
       <div className={styles.header}>
