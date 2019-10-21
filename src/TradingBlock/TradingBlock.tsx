@@ -89,7 +89,7 @@ const TradingBlock = ({ match, history }: Props) => {
             or otb.
           </div>
           <div className={styles.text}>
-            You can find your sleep league ID by logging into the Sleeper Web App and
+            You can find your sleeper league ID by logging into the Sleeper Web App and
             finding the ID in the URL bar.
           </div>
           <img src={SleeperLeagueIdImage} alt="sleeper league example" />
