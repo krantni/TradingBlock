@@ -7,12 +7,23 @@ import Modal from './components/Modal';
 import { ReactComponent as Arrow } from './images/downArrow.svg';
 import SleeperLeagueIdImage from './images/sleeperleagueid.png';
 import { tradingBlockReducer, initialState } from './TradingBlock.util';
+import { TradingBlockState } from './utils/types';
 
-const TradingBlock = () => {
+const TradingBlock = ({ match }: Props) => {
+  const initialTradingState: TradingBlockState = match.params.id
+    ? { ...initialState, leagueId: match.params.id, isLoading: true }
+    : initialState;
+
   const [{ leagueId, teamOwners, errorMessage, isLoading }, dispatch] = React.useReducer(
     tradingBlockReducer,
-    initialState,
+    initialTradingState,
   );
+
+  React.useEffect(() => {
+    if (match.params.id) {
+      getLeagueTradingBlock();
+    }
+  }, []);
 
   const getLeagueTradingBlock = () => {
     if (leagueId) {
@@ -38,7 +49,7 @@ const TradingBlock = () => {
         });
     }
   };
-
+  console.log('render');
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -105,5 +116,9 @@ const TradingBlock = () => {
     </div>
   );
 };
+
+export interface Props {
+  match: any;
+}
 
 export default TradingBlock;
