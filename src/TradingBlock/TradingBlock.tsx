@@ -115,6 +115,12 @@ const TradingBlock = ({ match, history }: Props) => {
           }}
         />
       )}
+      <div className={styles.footer}>
+        Not affiliated with Sleeper{' '}
+        <p>
+          <a href="mailto:krantni@gmail.com?subject=The Trading Block">Email me</a>
+        </p>
+      </div>
     </div>
   );
 };

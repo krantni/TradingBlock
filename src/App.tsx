@@ -6,12 +6,10 @@ import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 class App extends React.Component<any> {
   render() {
     return (
-      <>
-        <Switch>
-          <Route path="/:id?" component={TradingBlock} />
-          <Redirect from="*" to="/" />
-        </Switch>
-      </>
+      <Switch>
+        <Route path="/:id?" component={TradingBlock} />
+        <Redirect from="*" to="/" />
+      </Switch>
     );
   }
 }
