@@ -30,6 +30,7 @@ html, body {
   grid-template-columns: auto auto;
   grid-auto-rows: min-content;
   grid-row-gap: 20px;
+  padding-bottom: 20px;
 }
 
 .teamContainer {
@@ -101,10 +102,14 @@ img {
   font-size: .8em;
   padding-top: 10px;
   padding-bottom: 10px;
-  margin: 0 auto;
   text-align: center;
+  width: 100%;
+  flex-grow: 1;
+  align-items: flex-end;
+  justify-content: center;
+  display: flex;
 }
-.footer > p > a {
+.footer > div > p > a {
   color: #FFFFFF;
   cursor: pointer;
 }

@@ -21,7 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "tslint": "tslint --fix --project ./tsconfig.json"
+    "tslint": "tslint --fix --project ./tsconfig.json",
+    "deploy": "react-scripts build && firebase deploy"
   },
   "eslintConfig": {
     "extends": "react-app"
