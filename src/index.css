@@ -23,3 +23,7 @@ html, body {
 html, body, #root, #app, #app>div {
   min-height: 100%
 }
+
+#root{
+  display: flex;
+}
