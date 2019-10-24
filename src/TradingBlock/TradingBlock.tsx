@@ -109,6 +109,7 @@ const TradingBlock = ({ match, history }: Props) => {
       )}
       {errorMessage && (
         <Modal
+          leagueId={leagueId || ''}
           message={errorMessage}
           closeModal={() => {
             dispatch({ type: 'SET_ERROR', error: '' });

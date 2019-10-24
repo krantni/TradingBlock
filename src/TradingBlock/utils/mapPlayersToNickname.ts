@@ -14,6 +14,9 @@ export const mapPlayersToNickname = (
       nickName = rosterMetaData[nickNameKey];
     }
     const playerIDObject = players as { [key: string]: { [key: string]: string } };
+    if (playerIDObject[playerID] === undefined) {
+      throw new Error("Hmm.. I didn't find a player you have in your league.");
+    }
 
     return {
       id: playerID,

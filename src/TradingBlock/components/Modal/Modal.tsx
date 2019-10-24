@@ -1,12 +1,18 @@
 import * as React from 'react';
 import styles from './Modal.module.css';
 
-const Modal = ({ message, closeModal }: Props) => {
+const Modal = ({ message, closeModal, leagueId }: Props) => {
   return (
     <div className={styles.modalContainer}>
       <div className={styles.modal}>
         <div className={styles.body}>
-          <span className={styles.message}>{message}</span>
+          <p className={styles.message}>{message}</p>
+          <a
+            className={styles.link}
+            href={`mailto:krantni@gmail.com?subject=The Trading Block Error&body=I had an error with the Trading Block. %0D%0AMy League ID is: ${leagueId}`}
+          >
+            Email Me
+          </a>
           <p>Please try again.</p>
           <div className={styles.button} onClick={() => closeModal()}>
             OK
@@ -18,6 +24,7 @@ const Modal = ({ message, closeModal }: Props) => {
 };
 
 export interface Props {
+  leagueId: string;
   message: string;
   closeModal: () => void;
 }
