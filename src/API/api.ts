@@ -7,6 +7,7 @@ import {
   TradingBlockActions,
 } from '../utils/types';
 import { mapPlayersToNickname } from '../utils/mapPlayersToNickname';
+import { sortTeamOwners } from 'utils/sortTeamOwners';
 
 export const getLeagueTradingBlock = (
   leagueId: string,
@@ -26,7 +27,7 @@ export const getLeagueTradingBlock = (
             owner.players = roster.players;
           }
         });
-        dispatch({ type: 'SET_TEAM_OWNERS', owners: teamOwners });
+        dispatch({ type: 'SET_TEAM_OWNERS', owners: teamOwners.sort(sortTeamOwners) });
       }
     })
     .catch(err => {
