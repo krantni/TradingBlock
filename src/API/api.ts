@@ -1,6 +1,38 @@
 import axios, { AxiosResponse } from 'axios';
-import { ServiceLeagueData, TeamOwner, ServiceRosterData, Roster } from '../utils/types';
+import {
+  ServiceLeagueData,
+  TeamOwner,
+  ServiceRosterData,
+  Roster,
+  TradingBlockActions,
+} from '../utils/types';
 import { mapPlayersToNickname } from '../utils/mapPlayersToNickname';
+
+export const getLeagueTradingBlock = (
+  leagueId: string,
+  dispatch: React.Dispatch<TradingBlockActions>,
+) => {
+  dispatch({ type: 'SET_LOADING' });
+  const leagueUserPromise = fetchLeagueUsers(leagueId);
+  const leagueRosterPromise = fetchLeagueRosters(leagueId);
+  Promise.all([leagueUserPromise, leagueRosterPromise])
+    .then(([teamOwners, rosters]) => {
+      if (teamOwners && rosters) {
+        teamOwners.forEach(owner => {
+          const roster = rosters.find(roster => {
+            return roster.ownerID === owner.userID;
+          });
+          if (roster) {
+            owner.players = roster.players;
+          }
+        });
+        dispatch({ type: 'SET_TEAM_OWNERS', owners: teamOwners });
+      }
+    })
+    .catch(err => {
+      dispatch({ type: 'SET_ERROR', error: err.message });
+    });
+};
 
 export const fetchLeagueUsers = (leagueId: string): Promise<TeamOwner[]> => {
   return axios

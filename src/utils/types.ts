@@ -38,7 +38,7 @@ export type Player = {
 };
 
 export type TradingBlockState = {
-  leagueId: string | null;
+  leagueId: string;
   teamOwners: TeamOwner[];
   isLoading: boolean;
   errorMessage: string;
