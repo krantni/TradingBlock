@@ -2,11 +2,14 @@ import { Player } from './types';
 import players from './players.json';
 
 export const mapPlayersToNickname = (
-  roster: string[],
+  roster: string[] | null,
   rosterMetaData: {
     [key: string]: string;
   } | null,
 ): Player[] => {
+  if(!roster){
+    return [];
+  }
   return roster.map(playerID => {
     const nickNameKey = 'p_nick_' + playerID;
     let nickName = '';

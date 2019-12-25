@@ -16,7 +16,7 @@ export type TeamOwner = {
 };
 
 export type ServiceRosterData = {
-  players: string[];
+  players: string[] | null;
   owner_id: string;
   metadata: {
     [key: string]: string;
