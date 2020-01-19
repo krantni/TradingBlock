@@ -7,7 +7,7 @@ export const mapPlayersToNickname = (
     [key: string]: string;
   } | null,
 ): Player[] => {
-  if(!roster){
+  if (!roster) {
     return [];
   }
   return roster.map(playerID => {

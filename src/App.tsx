@@ -50,7 +50,7 @@ const App = ({ history }: Props) => {
         </div>
         {!isLoading &&
           (leagueName ? (
-            <div>
+            <div className={styles.title}>
               <h1>{leagueName}</h1>
               <h3>Trading Block</h3>
             </div>

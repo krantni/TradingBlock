@@ -5,7 +5,15 @@ import styles from './Team.module.css';
 const Team = ({ owner }: Props) => {
   return (
     <div className={styles.team}>
-      <h3 className={styles.owner}>{owner.userName}</h3>
+      <div className={styles.ownerAvatar}>
+        {owner.avatarID && (
+          <img
+            src={`https://sleepercdn.com/avatars/${owner.avatarID}`}
+            alt={`${owner.userName}'s avatar`}
+          />
+        )}
+        <h3>{owner.userName}</h3>
+      </div>
       <div className={styles.tradingBlock}>
         <div className={styles.playerContainer}>
           {owner.players

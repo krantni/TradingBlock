@@ -4,10 +4,22 @@
   flex-direction: column;
 }
 
-.owner {
-  padding: 0;
-  margin: 0 auto;
-  text-align: center;
+.ownerAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ownerAvatar > img {
+  height: 35px;
+  width: 35px;
+  padding: 2px;
+  border-radius: 50%;
+}
+
+/* If a user doesn't have an avatar, their name will be 15px off center */
+.ownerAvatar > h3 {
+  margin: 0 0 0 15px;
 }
 
 .playerContainer{
