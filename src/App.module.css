@@ -33,6 +33,14 @@ html, body {
     transform: rotate(90deg);
     cursor: pointer;
   }
+
+  .title > h1 {
+    margin-bottom: 5px;
+  }
+
+  .title > h3 {
+    margin-top: 0px;
+  }
   
   .footer {
     font-size: .8em;
