@@ -14,10 +14,11 @@ export const getLeagueTradingBlock = (
   dispatch: React.Dispatch<TradingBlockActions>,
 ) => {
   dispatch({ type: 'SET_LOADING' });
+  const leagueNamePromise = fetchLeagueDetails(leagueId);
   const leagueUserPromise = fetchLeagueUsers(leagueId);
   const leagueRosterPromise = fetchLeagueRosters(leagueId);
-  Promise.all([leagueUserPromise, leagueRosterPromise])
-    .then(([teamOwners, rosters]) => {
+  Promise.all([leagueNamePromise, leagueUserPromise, leagueRosterPromise])
+    .then(([leagueName, teamOwners, rosters]) => {
       if (teamOwners && rosters) {
         teamOwners.forEach(owner => {
           const roster = rosters.find(roster => {
@@ -27,7 +28,11 @@ export const getLeagueTradingBlock = (
             owner.players = roster.players;
           }
         });
-        dispatch({ type: 'SET_TEAM_OWNERS', owners: teamOwners.sort(sortTeamOwners) });
+        dispatch({
+          leagueName,
+          type: 'SET_TRADING_BLOCK',
+          owners: teamOwners.sort(sortTeamOwners),
+        });
       }
     })
     .catch(err => {
@@ -69,6 +74,19 @@ export const fetchLeagueRosters = (leagueId: string): Promise<Roster[]> => {
       }
       throw new Error(
         'Error finding league rosters. Did you enter the correct League ID?',
+      );
+    });
+};
+
+export const fetchLeagueDetails = (leagueId: string): Promise<string> => {
+  return axios
+    .get(`https://api.sleeper.app/v1/league/${leagueId}`)
+    .then((serviceResponse: AxiosResponse<{ name: string }>): string => {
+      if (serviceResponse.data && serviceResponse.data) {
+        return serviceResponse.data.name;
+      }
+      throw new Error(
+        'Error finding league details. Did you enter the correct League ID?',
       );
     });
 };

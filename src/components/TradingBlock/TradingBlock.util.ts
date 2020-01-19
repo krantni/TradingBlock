@@ -2,6 +2,7 @@ import { TradingBlockState, TradingBlockActions } from '../../utils/types';
 
 export const initialState: TradingBlockState = {
   leagueId: '',
+  leagueName: '',
   teamOwners: [],
   isLoading: false,
   errorMessage: '',
@@ -12,9 +13,10 @@ export const tradingBlockReducer = (
   action: TradingBlockActions,
 ) => {
   switch (action.type) {
-    case 'SET_TEAM_OWNERS':
+    case 'SET_TRADING_BLOCK':
       return {
         ...state,
+        leagueName: action.leagueName,
         teamOwners: action.owners,
         isLoading: false,
       };

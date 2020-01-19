@@ -39,6 +39,7 @@ export type Player = {
 
 export type TradingBlockState = {
   leagueId: string;
+  leagueName: string;
   teamOwners: TeamOwner[];
   isLoading: boolean;
   errorMessage: string;
@@ -47,7 +48,8 @@ export type TradingBlockState = {
 export type TradingBlockActions = SetOwners | SetLeagueId | SetError | Reset | SetLoading;
 
 type SetOwners = {
-  type: 'SET_TEAM_OWNERS';
+  type: 'SET_TRADING_BLOCK';
+  leagueName: string;
   owners: TeamOwner[];
 };
 

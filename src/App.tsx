@@ -18,10 +18,10 @@ const App = ({ history }: Props) => {
     ? { ...initialState, leagueId: history.location.pathname.substr(1), isLoading: true }
     : initialState;
 
-  const [{ leagueId, teamOwners, errorMessage, isLoading }, dispatch] = React.useReducer(
-    tradingBlockReducer,
-    initialTradingState,
-  );
+  const [
+    { leagueId, leagueName, teamOwners, errorMessage, isLoading },
+    dispatch,
+  ] = React.useReducer(tradingBlockReducer, initialTradingState);
   React.useEffect(() => {
     if (history.location.pathname.substr(1)) {
       getLeagueTradingBlock(history.location.pathname.substr(1), dispatch);
@@ -48,7 +48,16 @@ const App = ({ history }: Props) => {
             </>
           )}
         </div>
-        <h1>The Trading Block</h1>
+        {!isLoading &&
+          (leagueName ? (
+            <div>
+              <h1>{leagueName}</h1>
+              <h3>Trading Block</h3>
+            </div>
+          ) : (
+            <h1>The Trading Block</h1>
+          ))}
+
         <div className={styles.arrow}></div>
       </div>
       {isLoading && <LoadingSpinner />}
