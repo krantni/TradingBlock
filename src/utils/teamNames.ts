@@ -1,0 +1,37 @@
+export const teamNames: { [key: string]: string } = {
+  ARI: 'Arizona Cardinals',
+  ATL: 'Atlanta Falcons',
+  TEN: 'Tennessee Titans',
+  LAR: 'Los Angeles Rams',
+  PIT: 'Pittsburgh Steelers',
+  NE: 'New England Patriots',
+  CLE: 'Cleveland Browns',
+  SEA: 'Seattle Seahawks',
+  HOU: 'Houston Texans',
+  OAK: 'Oakland Raiders',
+  LAC: 'Los Angeles Chargers',
+  BAL: 'Baltimore Ravens',
+  PHI: 'Philadelphia Eagles',
+  JAX: 'Jacksonville Jaguars',
+  GB: 'Green Bay Packers',
+  NYG: 'New York Giants',
+  IND: 'Indianapolis Colts',
+  NYJ: 'New York Jets',
+  CIN: 'Cincinnati Bengals',
+  MIA: 'Miami Dolphins',
+  CAR: 'Carolina Panthers',
+  NO: 'New Orleans Saints',
+  SF: 'San Francisco 49ers',
+  DAL: 'Dallas Cowboys',
+  DEN: 'Denver Broncos',
+  TB: 'Tampa Bay Buccaneers',
+  CHI: 'Chicago Bears',
+  KC: 'Kansas City Chiefs',
+  BUF: 'Buffalo Bills',
+  MIN: 'Minnesota Vikings',
+  DET: 'Detriot Lions',
+};
+
+export const getTeamName = (teamAbbr: string) => {
+  return teamNames[teamAbbr] ? teamNames[teamAbbr] : '';
+};
