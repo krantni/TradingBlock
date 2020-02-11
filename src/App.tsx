@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './App.module.css';
 import TradingBlock from 'components/TradingBlock';
-import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
+import { Route, Redirect, Switch, withRouter, useHistory } from 'react-router-dom';
 import Intro from 'components/Intro';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { ReactComponent as Arrow } from './images/downArrow.svg';
@@ -13,9 +13,11 @@ import { TradingBlockState } from './utils/types';
 import Modal from 'components/Modal';
 import { getLeagueTradingBlock } from 'API/api';
 
-const App = ({ history }: Props) => {
-  const initialTradingState: TradingBlockState = history.location.pathname.substr(1)
-    ? { ...initialState, leagueId: history.location.pathname.substr(1), isLoading: true }
+const App = () => {
+  const history = useHistory();
+  const pathname = history.location.pathname.substr(1);
+  const initialTradingState: TradingBlockState = pathname
+    ? { ...initialState, leagueId: pathname, isLoading: true }
     : initialState;
 
   const [
@@ -23,8 +25,8 @@ const App = ({ history }: Props) => {
     dispatch,
   ] = React.useReducer(tradingBlockReducer, initialTradingState);
   React.useEffect(() => {
-    if (history.location.pathname.substr(1)) {
-      getLeagueTradingBlock(history.location.pathname.substr(1), dispatch);
+    if (pathname) {
+      getLeagueTradingBlock(pathname, dispatch);
     }
     // eslint-disable-next-line
   }, []);
@@ -95,9 +97,5 @@ const App = ({ history }: Props) => {
     </div>
   );
 };
-
-export interface Props {
-  history: any;
-}
 
 export default withRouter(App);
