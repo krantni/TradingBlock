@@ -1,4 +1,4 @@
-import { TradingBlockState, TradingBlockActions } from '../../utils/types';
+import { TradingBlockState, TradingBlockActions } from 'utils/types';
 
 export const initialState: TradingBlockState = {
   leagueId: '',

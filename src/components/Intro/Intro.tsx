@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styles from './Intro.module.css';
-import SleeperLeagueIdImage from '../../images/sleeperleagueid.png';
+import SleeperLeagueIdImage from 'images/sleeperleagueid.png';
 
 const Intro = ({ leagueId, setLeagueId, startLeagueFetch }: Props) => {
   return (

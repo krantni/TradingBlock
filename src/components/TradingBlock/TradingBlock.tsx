@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styles from './TradingBlock.module.css';
-import Team from '../Team';
-import { TeamOwner } from '../../utils/types';
+import Team from 'components/Team';
+import { TeamOwner } from 'utils/types';
 
 const TradingBlock = ({ teamOwners }: Props) => {
   return (

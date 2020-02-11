@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TeamOwner } from '../../utils/types';
+import { TeamOwner } from 'utils/types';
 import styles from './Team.module.css';
 
 const Team = ({ owner }: Props) => {

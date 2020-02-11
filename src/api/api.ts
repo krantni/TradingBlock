@@ -5,8 +5,8 @@ import {
   ServiceRosterData,
   Roster,
   TradingBlockActions,
-} from '../utils/types';
-import { mapPlayersToNickname } from '../utils/mapPlayersToNickname';
+} from 'utils/types';
+import { mapPlayersToNickname } from 'utils/mapPlayersToNickname';
 import { sortTeamOwners } from 'utils/sortTeamOwners';
 
 export const getLeagueTradingBlock = (
