@@ -4,14 +4,14 @@ import TradingBlock from 'components/TradingBlock';
 import { Route, Redirect, Switch, withRouter, useHistory } from 'react-router-dom';
 import Intro from 'components/Intro';
 import LoadingSpinner from 'components/LoadingSpinner';
-import { ReactComponent as Arrow } from './images/downArrow.svg';
+import { ReactComponent as Arrow } from 'images/downArrow.svg';
 import {
   tradingBlockReducer,
   initialState,
-} from './components/TradingBlock/TradingBlock.util';
-import { TradingBlockState } from './utils/types';
+} from 'components/TradingBlock/TradingBlock.util';
+import { TradingBlockState } from 'utils/types';
 import Modal from 'components/Modal';
-import getLeagueTradingBlock from './api';
+import getLeagueTradingBlock from 'api';
 
 const App = () => {
   const history = useHistory();
