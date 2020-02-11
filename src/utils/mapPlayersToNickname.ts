@@ -1,5 +1,5 @@
 import { Player } from './types';
-import players from './players.json';
+import players from '../constants/players.json';
 
 export const mapPlayersToNickname = (
   roster: string[] | null,

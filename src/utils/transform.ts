@@ -1,4 +1,4 @@
-import { getTeamName } from './teamNames';
+import { getTeamName } from '../constants/teamNames';
 
 const fs = require('fs');
 const content = fs.readFileSync('players.json');
