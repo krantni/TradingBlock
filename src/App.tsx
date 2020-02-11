@@ -11,7 +11,7 @@ import {
 } from './components/TradingBlock/TradingBlock.util';
 import { TradingBlockState } from './utils/types';
 import Modal from 'components/Modal';
-import { getLeagueTradingBlock } from 'API/api';
+import getLeagueTradingBlock from './api';
 
 const App = () => {
   const history = useHistory();
