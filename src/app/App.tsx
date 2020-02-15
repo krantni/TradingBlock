@@ -5,35 +5,20 @@ import { Route, Redirect, Switch, withRouter, useHistory } from 'react-router-do
 import Intro from 'components/Intro';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { ReactComponent as Arrow } from 'images/downArrow.svg';
-import {
-  tradingBlockReducer,
-  initialState,
-} from 'components/TradingBlock/TradingBlock.util';
-import { TradingBlockState } from 'utils/types';
 import Modal from 'components/Modal';
 import getLeagueTradingBlock from 'api';
+import { useAppContext } from 'provider/Provider';
 
 const App = () => {
   const history = useHistory();
-  const pathname = history.location.pathname.substr(1);
-  const initialTradingState: TradingBlockState = pathname
-    ? { ...initialState, leagueId: pathname, isLoading: true }
-    : initialState;
-
-  const [
-    { leagueId, leagueName, teamOwners, errorMessage, isLoading },
+  const {
+    data: { teamOwners, leagueId, isLoading, leagueName, errorMessage },
     dispatch,
-  ] = React.useReducer(tradingBlockReducer, initialTradingState);
-  React.useEffect(() => {
-    if (pathname) {
-      getLeagueTradingBlock(pathname, dispatch);
-    }
-    // eslint-disable-next-line
-  }, []);
+  } = useAppContext();
 
   const triggerLeagueFetch = () => {
     getLeagueTradingBlock(leagueId, dispatch);
-    history.push(`/${leagueId}`);
+    history.push(`${leagueId}`);
   };
 
   return (
@@ -64,14 +49,18 @@ const App = () => {
       </div>
       {isLoading && <LoadingSpinner />}
       <Switch>
-        <Route path="/:id" component={() => <TradingBlock teamOwners={teamOwners} />} />
+        <Route
+          path="/:id"
+          render={() => <TradingBlock teamOwners={teamOwners} key="tradingBlock" />}
+        />
         <Route
           path="/"
-          component={() => (
+          render={() => (
             <Intro
               startLeagueFetch={triggerLeagueFetch}
               leagueId={leagueId || ''}
               setLeagueId={(id: string) => dispatch({ id, type: 'SET_LEAGUE_ID' })}
+              key="intro"
             />
           )}
         />

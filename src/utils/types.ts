@@ -37,7 +37,7 @@ export type Player = {
   position: string;
 };
 
-export type TradingBlockState = {
+export type TradingBlockData = {
   leagueId: string;
   leagueName: string;
   teamOwners: TeamOwner[];

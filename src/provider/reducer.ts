@@ -1,6 +1,6 @@
-import { TradingBlockState, TradingBlockActions } from 'utils/types';
+import { TradingBlockData, TradingBlockActions } from 'utils/types';
 
-export const initialState: TradingBlockState = {
+export const initialData: TradingBlockData = {
   leagueId: '',
   leagueName: '',
   teamOwners: [],
@@ -9,7 +9,7 @@ export const initialState: TradingBlockState = {
 };
 
 export const tradingBlockReducer = (
-  state: TradingBlockState = initialState,
+  state: TradingBlockData = initialData,
   action: TradingBlockActions,
 ) => {
   switch (action.type) {
@@ -37,7 +37,7 @@ export const tradingBlockReducer = (
         isLoading: true,
       };
     case 'RESET':
-      return initialState;
+      return initialData;
     default:
       return state;
   }
