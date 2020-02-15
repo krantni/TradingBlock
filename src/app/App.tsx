@@ -26,13 +26,11 @@ const App = () => {
       <div className={styles.header}>
         <div className={styles.arrow}>
           {teamOwners.length !== 0 && (
-            <>
-              <Arrow
-                onClick={() => {
-                  history.push(`/`);
-                }}
-              />
-            </>
+            <Arrow
+              onClick={() => {
+                history.push(`/`);
+              }}
+            />
           )}
         </div>
         {!isLoading &&
