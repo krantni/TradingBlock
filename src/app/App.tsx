@@ -47,10 +47,7 @@ const App = () => {
       </div>
       {isLoading && <LoadingSpinner />}
       <Switch>
-        <Route
-          path="/:id"
-          render={() => <TradingBlock teamOwners={teamOwners} key="tradingBlock" />}
-        />
+        <Route path="/:id" render={() => <TradingBlock teamOwners={teamOwners} />} />
         <Route
           path="/"
           render={() => (
@@ -58,7 +55,6 @@ const App = () => {
               startLeagueFetch={triggerLeagueFetch}
               leagueId={leagueId || ''}
               setLeagueId={(id: string) => dispatch({ id, type: 'SET_LEAGUE_ID' })}
-              key="intro"
             />
           )}
         />
