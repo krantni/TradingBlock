@@ -24,3 +24,7 @@ yarn-error.log*
 
 
 .firebase
+
+# remove output of typescript - javascript conversion for updating player list
+/src/constants/*.js
+/src/utils/*.js
