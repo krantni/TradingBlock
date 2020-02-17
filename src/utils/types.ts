@@ -41,21 +41,33 @@ export type TradingBlockData = {
   leagueId: string;
   leagueName: string;
   teamOwners: TeamOwner[];
+  route: string;
   isLoading: boolean;
   errorMessage: string;
 };
 
-export type TradingBlockActions = SetOwners | SetLeagueId | SetError | Reset | SetLoading;
+export type TradingBlockActions =
+  | SetTradingBlock
+  | SetLeagueId
+  | ClearRoute
+  | SetError
+  | Reset
+  | SetLoading;
 
-type SetOwners = {
+type SetTradingBlock = {
   type: 'SET_TRADING_BLOCK';
   leagueName: string;
   owners: TeamOwner[];
+  leagueId: string;
 };
 
 type SetLeagueId = {
   type: 'SET_LEAGUE_ID';
   id: string;
+};
+
+type ClearRoute = {
+  type: 'CLEAR_ROUTE';
 };
 
 type SetError = {

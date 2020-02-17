@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { TradingBlockData, TradingBlockActions } from 'utils/types';
 import { initialData, tradingBlockReducer } from './reducer';
-import { useHistory } from 'react-router';
 import getLeagueTradingBlock from 'api';
 
 const AppContext = React.createContext<{
@@ -9,9 +8,7 @@ const AppContext = React.createContext<{
   dispatch: React.Dispatch<TradingBlockActions>;
 }>({
   data: initialData,
-  dispatch: () => {
-    console.log('here');
-  },
+  dispatch: () => {},
 });
 
 export const useAppContext = () => {
@@ -19,8 +16,7 @@ export const useAppContext = () => {
 };
 
 const Provider = ({ children }: Props) => {
-  const history = useHistory();
-  const pathname = history.location.pathname.substr(1);
+  const pathname = window.location.pathname.substr(1);
 
   const [data, dispatch] = React.useReducer(tradingBlockReducer, initialData);
 

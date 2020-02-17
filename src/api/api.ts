@@ -30,6 +30,7 @@ export const getLeagueTradingBlock = (
         });
         dispatch({
           leagueName,
+          leagueId,
           type: 'SET_TRADING_BLOCK',
           owners: teamOwners.sort(sortTeamOwners),
         });
