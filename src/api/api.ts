@@ -13,6 +13,14 @@ export const getLeagueTradingBlock = (
   leagueId: string,
   dispatch: React.Dispatch<TradingBlockActions>,
 ) => {
+  if (!isAllNumbers(leagueId)) {
+    dispatch({
+      type: 'SET_ERROR',
+      error:
+        'Your League ID should only contains numbers 0-9. Did you enter the correct League ID?',
+    });
+    return;
+  }
   dispatch({ type: 'SET_LOADING' });
   const leagueNamePromise = fetchLeagueDetails(leagueId);
   const leagueUserPromise = fetchLeagueUsers(leagueId);
@@ -90,6 +98,11 @@ const fetchLeagueDetails = (leagueId: string): Promise<string> => {
         'Error finding league details. Did you enter the correct League ID?',
       );
     });
+};
+
+const isAllNumbers = (input: string) => {
+  const regex = new RegExp(/^\d+$/);
+  return regex.test(input);
 };
 
 export default getLeagueTradingBlock;
