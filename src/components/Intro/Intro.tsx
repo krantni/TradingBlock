@@ -11,7 +11,7 @@ const Intro = () => {
   } = useAppContext();
 
   const triggerLeagueFetch = () => {
-    getLeagueTradingBlock(leagueId, dispatch);
+    getLeagueTradingBlock(leagueId.trim(), dispatch);
   };
 
   return (

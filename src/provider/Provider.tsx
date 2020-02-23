@@ -22,7 +22,7 @@ const Provider = ({ children }: Props) => {
 
   React.useEffect(() => {
     if (pathname) {
-      getLeagueTradingBlock(pathname, dispatch);
+      getLeagueTradingBlock(pathname.trim(), dispatch);
     }
     // eslint-disable-next-line
   }, []);
