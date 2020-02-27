@@ -14,7 +14,7 @@ const rosterNickNames2 = {
   p_nick_5170: 'PlayerNickName',
 };
 
-describe('Mapping nicknames to players', () => {
+describe('mapPlayersToNickname', () => {
   it('works for any casing', () => {
     expect(
       mapPlayersToNickname(playerIDs, rosterNickNames1).filter(
