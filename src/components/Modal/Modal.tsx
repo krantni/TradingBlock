@@ -1,10 +1,14 @@
-import * as React from 'react';
-import styles from './Modal.module.css';
+import * as React from "react";
+import styles from "./Modal.module.css";
+import { ReactComponent as Close } from "images/close.svg";
 
 const Modal = ({ message, closeModal, leagueId }: Props) => {
   return (
     <div className={styles.modalContainer}>
       <div className={styles.modal}>
+        <div className={styles.modalHeading}>
+          <Close onClick={() => closeModal()} />
+        </div>
         <div className={styles.body}>
           <p className={styles.message}>{message}</p>
           <a
