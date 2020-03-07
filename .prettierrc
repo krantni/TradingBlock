@@ -1,5 +1,5 @@
 # .prettierrc
 printWidth: 90
-tabWidth: 90
+tabWidth: 2
 trailingcomma: all
 parser: typescript

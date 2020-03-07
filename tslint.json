@@ -9,14 +9,6 @@
         "no-any":false,
         "import-name": false,
         "strict-boolean-expressions": false,
-        "prettier":[
-            true,
-            {
-                "printWidth":90,
-                "singleQuote":true,
-                "trailingComma":"all"
-            }
-        ],
         "variable-name":[
             true,
             "check-format",
