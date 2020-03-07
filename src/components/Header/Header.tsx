@@ -2,6 +2,7 @@ import * as React from "react";
 import styles from "./Header.module.css";
 import { ReactComponent as Arrow } from "images/downArrow.svg";
 import { useAppContext } from "provider/Provider";
+import Settings from "./Settings";
 
 const Header = () => {
   const {
@@ -29,7 +30,7 @@ const Header = () => {
       ) : (
         <h1>The Trading Block</h1>
       )}
-      <div className={styles.arrow}></div>
+      <Settings />
     </div>
   );
 };
