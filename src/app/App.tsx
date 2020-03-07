@@ -3,7 +3,7 @@ import styles from "./App.module.css";
 import TradingBlock from "components/TradingBlock";
 import Intro from "components/Intro";
 import LoadingSpinner from "components/LoadingSpinner";
-import Modal from "components/Modal";
+import { ErrorModal } from "components/Modals";
 import { useAppContext } from "provider/Provider";
 import Header from "components/Header";
 
@@ -20,7 +20,7 @@ const App = () => {
       {route !== "" && <TradingBlock teamOwners={teamOwners} />}
       {isLoading && <LoadingSpinner />}
       {errorMessage && (
-        <Modal
+        <ErrorModal
           leagueId={leagueId || ""}
           message={errorMessage}
           closeModal={() => {
