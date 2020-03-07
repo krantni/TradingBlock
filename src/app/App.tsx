@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./App.module.css";
 import TradingBlock from "components/TradingBlock";
 import Intro from "components/Intro";
-import LoadingSpinner from "components/LoadingSpinner";
-import { ErrorModal } from "components/Modals";
+import { Spinner } from "components/common";
+import ErrorModal from "components/ErrorModal";
 import { useAppContext } from "provider/Provider";
 import Header from "components/Header";
 
@@ -18,7 +18,7 @@ const App = () => {
       <Header />
       {route === "" && <Intro />}
       {route !== "" && <TradingBlock teamOwners={teamOwners} />}
-      {isLoading && <LoadingSpinner />}
+      {isLoading && <Spinner />}
       {errorMessage && (
         <ErrorModal
           leagueId={leagueId || ""}
