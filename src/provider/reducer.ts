@@ -1,5 +1,5 @@
-import { TradingBlockData, TradingBlockActions, QueryParams } from "utils/types";
-import { getAppDataFromQueryString, setQueryParams } from "utils/queryParams";
+import { TradingBlockData, TradingBlockActions, Settings } from "utils/types";
+import { getSettingsFromQueryString, setQueryParams } from "utils/queryParams";
 
 export const initialData: TradingBlockData = {
   leagueId: "",
@@ -8,19 +8,19 @@ export const initialData: TradingBlockData = {
   route: "",
   isLoading: false,
   errorMessage: "",
-  queryParams: getAppDataFromQueryString()
+  settings: getSettingsFromQueryString()
 };
 
 export const tradingBlockReducer = (
   state: TradingBlockData = initialData,
   action: TradingBlockActions
-) => {
+): TradingBlockData => {
   switch (action.type) {
     case "SET_TRADING_BLOCK":
       window.history.pushState(
         "",
         action.leagueName,
-        window.location.origin + "/" + action.leagueId
+        window.location.origin + "/" + action.leagueId + window.location.search
       );
       return {
         ...state,
@@ -31,14 +31,14 @@ export const tradingBlockReducer = (
         isLoading: false
       };
     case "UPDATE_SETTINGS":
-      const newQueryParams: QueryParams = {
-        ...state.queryParams,
-        [action.settingKey]: action.settingValue
+      const newQueryParams: Settings = {
+        ...state.settings,
+        ...action.settings
       };
       setQueryParams(newQueryParams);
       return {
         ...state,
-        queryParams: newQueryParams
+        settings: newQueryParams
       };
     case "SET_LEAGUE_ID":
       return {
@@ -46,7 +46,11 @@ export const tradingBlockReducer = (
         leagueId: action.id
       };
     case "CLEAR_ROUTE":
-      window.history.pushState("", "Trading Block", window.location.origin + "/");
+      window.history.pushState(
+        "",
+        "Trading Block",
+        window.location.origin + "/" + window.location.search
+      );
       return {
         ...state,
         route: ""

@@ -11,17 +11,20 @@ const Header = () => {
   } = useAppContext();
   return (
     <div className={styles.header}>
-      <div className={styles.arrow}>
-        {route !== "" && (
-          <Arrow
-            onClick={() => {
-              dispatch({
-                type: "CLEAR_ROUTE"
-              });
-            }}
-          />
-        )}
+      <div className={styles.sideObject}>
+        <div className={styles.arrow}>
+          {route !== "" && (
+            <Arrow
+              onClick={() => {
+                dispatch({
+                  type: "CLEAR_ROUTE"
+                });
+              }}
+            />
+          )}
+        </div>
       </div>
+
       {route !== "" && leagueName ? (
         <div className={styles.title}>
           <h1>{leagueName}</h1>
@@ -30,7 +33,9 @@ const Header = () => {
       ) : (
         <h1>The Trading Block</h1>
       )}
-      <Settings />
+      <div className={styles.sideObject}>
+        <Settings />
+      </div>
     </div>
   );
 };

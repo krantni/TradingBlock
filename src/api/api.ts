@@ -7,7 +7,7 @@ import {
   TradingBlockActions,
 } from 'utils/types';
 import { mapPlayersToNickname } from 'utils/mapPlayersToNickname';
-import { sortTeamOwners } from 'utils/sortTeamOwners';
+import { sortTeamOwners, sortPlayersByPosition } from 'utils/sorting';
 
 export const getLeagueTradingBlock = (
   leagueId: string,
@@ -76,7 +76,7 @@ const fetchLeagueRosters = (leagueId: string): Promise<Roster[]> => {
       if (serviceResponse.data && serviceResponse.data.length) {
         return serviceResponse.data.map(roster => {
           return {
-            players: mapPlayersToNickname(roster.players, roster.metadata),
+            players: mapPlayersToNickname(roster.players, roster.metadata).sort(sortPlayersByPosition),
             ownerID: roster.owner_id,
           };
         });

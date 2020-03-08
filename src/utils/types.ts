@@ -44,10 +44,10 @@ export type TradingBlockData = {
   route: string;
   isLoading: boolean;
   errorMessage: string;
-  queryParams: QueryParams;
+  settings: Settings;
 };
 
-export type QueryParams = {
+export type Settings = {
   fullRosters: boolean;
   customNickName: string;
 };
@@ -92,6 +92,5 @@ type Reset = {
 
 type UpdateSettings = {
   type: "UPDATE_SETTINGS";
-  settingKey: keyof QueryParams;
-  settingValue: QueryParams[keyof QueryParams];
+  settings: Partial<Settings>;
 };

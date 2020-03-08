@@ -6,21 +6,30 @@ import { useAppContext } from "provider/Provider";
 const SettingsModal = ({ closeModal }: Props) => {
   const {
     data: {
-      queryParams: { fullRosters }
+      settings: { fullRosters }
     },
     dispatch
   } = useAppContext();
+  const [showFullRosters, toggleFullRosters] = React.useState(fullRosters);
+
   return (
-    <Modal closeModal={closeModal} title={"Settings"}>
+    <Modal
+      closeModal={() => {
+        dispatch({
+          type: "UPDATE_SETTINGS",
+          settings: {
+            fullRosters: showFullRosters
+          }
+        });
+        closeModal();
+      }}
+      title={"Settings"}
+    >
       <Toggle
         label={"Show full rosters"}
-        isSelected={fullRosters}
+        isSelected={showFullRosters}
         onToggle={() => {
-          dispatch({
-            type: "UPDATE_SETTINGS",
-            settingKey: "fullRosters",
-            settingValue: !fullRosters
-          });
+          toggleFullRosters(!showFullRosters);
         }}
       />
     </Modal>

@@ -1,0 +1,23 @@
+export const positionsRanked = {
+  QB: 1,
+  RB: 2,
+  FB: 3,
+  WR: 4,
+  TE: 5,
+  K: 6,
+  P: 7,
+  LS: 8,
+  "D/ST": 9,
+  DL: 10,
+  DE: 11,
+  OLB: 12,
+  ILB: 13,
+  CB: 14,
+  S: 15,
+  SS: 16,
+  FS: 17,
+  G: 18,
+  OT: 19,
+  NT: 10,
+  C: 21
+};

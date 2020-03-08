@@ -1,4 +1,4 @@
-import { QueryParams } from "./types";
+import { Settings } from "./types";
 
 const getQueryParams = (): {
   [key: string]: string | null;
@@ -18,7 +18,7 @@ const getQueryParams = (): {
   return queryParams;
 };
 
-export const getAppDataFromQueryString = (): QueryParams => {
+export const getSettingsFromQueryString = (): Settings => {
   const queryParams = getQueryParams();
   return {
     fullRosters: queryParams["fullRosters"] === "true",
@@ -26,15 +26,15 @@ export const getAppDataFromQueryString = (): QueryParams => {
   };
 };
 
-export const setQueryParams = (queryParams: QueryParams) => {
+export const setQueryParams = (settings: Settings) => {
   let newQueryString = "?";
   // tslint:disable-next-line:prefer-array-literal
-  (Object.keys(queryParams) as Array<keyof QueryParams>).forEach(key => {
-    if (queryParams[key]) {
+  (Object.keys(settings) as Array<keyof Settings>).forEach(key => {
+    if (settings[key]) {
       if (newQueryString.length > 1) {
-        newQueryString += `&${key}=${queryParams[key]}`;
+        newQueryString += `&${key}=${settings[key]}`;
       } else {
-        newQueryString += `${key}=${queryParams[key]}`;
+        newQueryString += `${key}=${settings[key]}`;
       }
     }
   });
