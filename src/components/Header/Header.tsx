@@ -33,9 +33,7 @@ const Header = () => {
       ) : (
         <h1>The Trading Block</h1>
       )}
-      <div className={styles.sideObject}>
-        <Settings />
-      </div>
+      <div className={styles.sideObject}>{route !== "" && <Settings />}</div>
     </div>
   );
 };
