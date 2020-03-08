@@ -1,16 +1,26 @@
 import * as React from "react";
 import { Modal } from "components/common";
 import Toggle from "components/common/Toggle";
+import { useAppContext } from "provider/Provider";
 
 const SettingsModal = ({ closeModal }: Props) => {
-  const [toggle, toggleTheToggle] = React.useState<boolean>(false);
+  const {
+    data: {
+      queryParams: { fullRosters }
+    },
+    dispatch
+  } = useAppContext();
   return (
     <Modal closeModal={closeModal} title={"Settings"}>
       <Toggle
-        label={"Show full roster"}
-        isSelected={toggle}
+        label={"Show full rosters"}
+        isSelected={fullRosters}
         onToggle={() => {
-          toggleTheToggle(!toggle);
+          dispatch({
+            type: "UPDATE_SETTINGS",
+            settingKey: "fullRosters",
+            settingValue: !fullRosters
+          });
         }}
       />
     </Modal>

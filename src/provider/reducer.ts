@@ -1,25 +1,26 @@
-import { TradingBlockData, TradingBlockActions } from 'utils/types';
+import { TradingBlockData, TradingBlockActions, QueryParams } from "utils/types";
+import { getAppDataFromQueryString, setQueryParams } from "utils/queryParams";
 
 export const initialData: TradingBlockData = {
-  leagueId: '',
-  leagueName: '',
+  leagueId: "",
+  leagueName: "",
   teamOwners: [],
-  route: '',
+  route: "",
   isLoading: false,
-  errorMessage: '',
+  errorMessage: "",
+  queryParams: getAppDataFromQueryString()
 };
 
 export const tradingBlockReducer = (
   state: TradingBlockData = initialData,
-  action: TradingBlockActions,
+  action: TradingBlockActions
 ) => {
   switch (action.type) {
-    case 'SET_TRADING_BLOCK':
-      // window.location.pathname = action.leagueId;
+    case "SET_TRADING_BLOCK":
       window.history.pushState(
-        '',
+        "",
         action.leagueName,
-        window.location.origin + '/' + action.leagueId,
+        window.location.origin + "/" + action.leagueId
       );
       return {
         ...state,
@@ -27,31 +28,41 @@ export const tradingBlockReducer = (
         teamOwners: action.owners,
         leagueId: action.leagueId,
         route: action.leagueId,
+        isLoading: false
+      };
+    case "UPDATE_SETTINGS":
+      const newQueryParams: QueryParams = {
+        ...state.queryParams,
+        [action.settingKey]: action.settingValue
+      };
+      setQueryParams(newQueryParams);
+      return {
+        ...state,
+        queryParams: newQueryParams
+      };
+    case "SET_LEAGUE_ID":
+      return {
+        ...state,
+        leagueId: action.id
+      };
+    case "CLEAR_ROUTE":
+      window.history.pushState("", "Trading Block", window.location.origin + "/");
+      return {
+        ...state,
+        route: ""
+      };
+    case "SET_ERROR":
+      return {
+        ...state,
         isLoading: false,
+        errorMessage: action.error
       };
-    case 'SET_LEAGUE_ID':
+    case "SET_LOADING":
       return {
         ...state,
-        leagueId: action.id,
+        isLoading: true
       };
-    case 'CLEAR_ROUTE':
-      window.history.pushState('', 'Trading Block', window.location.origin + '/');
-      return {
-        ...state,
-        route: '',
-      };
-    case 'SET_ERROR':
-      return {
-        ...state,
-        isLoading: false,
-        errorMessage: action.error,
-      };
-    case 'SET_LOADING':
-      return {
-        ...state,
-        isLoading: true,
-      };
-    case 'RESET':
+    case "RESET":
       return initialData;
     default:
       return state;

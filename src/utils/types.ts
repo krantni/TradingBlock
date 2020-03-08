@@ -44,6 +44,12 @@ export type TradingBlockData = {
   route: string;
   isLoading: boolean;
   errorMessage: string;
+  queryParams: QueryParams;
+};
+
+export type QueryParams = {
+  fullRosters: boolean;
+  customNickName: string;
 };
 
 export type TradingBlockActions =
@@ -52,33 +58,40 @@ export type TradingBlockActions =
   | ClearRoute
   | SetError
   | Reset
-  | SetLoading;
+  | SetLoading
+  | UpdateSettings;
 
 type SetTradingBlock = {
-  type: 'SET_TRADING_BLOCK';
+  type: "SET_TRADING_BLOCK";
   leagueName: string;
   owners: TeamOwner[];
   leagueId: string;
 };
 
 type SetLeagueId = {
-  type: 'SET_LEAGUE_ID';
+  type: "SET_LEAGUE_ID";
   id: string;
 };
 
 type ClearRoute = {
-  type: 'CLEAR_ROUTE';
+  type: "CLEAR_ROUTE";
 };
 
 type SetError = {
-  type: 'SET_ERROR';
+  type: "SET_ERROR";
   error: string;
 };
 
 type SetLoading = {
-  type: 'SET_LOADING';
+  type: "SET_LOADING";
 };
 
 type Reset = {
-  type: 'RESET';
+  type: "RESET";
+};
+
+type UpdateSettings = {
+  type: "UPDATE_SETTINGS";
+  settingKey: keyof QueryParams;
+  settingValue: QueryParams[keyof QueryParams];
 };
