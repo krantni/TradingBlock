@@ -1,5 +1,5 @@
-import * as React from "react";
-import styles from "./Toggle.module.css";
+import * as React from 'react';
+import styles from './Toggle.module.css';
 
 const Toggle = ({ isSelected, onToggle, label }: Props) => {
   return (

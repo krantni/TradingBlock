@@ -19,6 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "tslint": "tslint --fix --project ./tsconfig.json",
+    "format": "prettier --write ./src/**/*.{js,ts,tsx}",
     "updatePlayers": "tsc ./src/utils/updatePlayers.ts && node ./src/utils/updatePlayers.js",
     "deploy": "react-scripts build && firebase deploy"
   },
@@ -39,7 +40,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^9.5.0",
-    "prettier": "^1.18.2",
+    "prettier": "^1.19.1",
     "tslint": "^5.18.0",
     "tslint-config-airbnb": "~5.7.0",
     "tslint-config-prettier": "~1.9.0",

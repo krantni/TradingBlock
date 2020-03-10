@@ -1,6 +1,6 @@
-import * as React from "react";
-import styles from "./ErrorModal.module.css";
-import { Modal } from "components/common";
+import * as React from 'react';
+import styles from './ErrorModal.module.css';
+import { Modal } from 'components/common';
 
 const ErrorModal = ({ leagueId, closeModal, message }: Props) => {
   return (

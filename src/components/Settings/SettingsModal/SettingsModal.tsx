@@ -1,14 +1,14 @@
-import * as React from "react";
-import { Modal } from "components/common";
-import Toggle from "components/common/Toggle";
-import { useAppContext } from "provider/Provider";
+import * as React from 'react';
+import { Modal } from 'components/common';
+import Toggle from 'components/common/Toggle';
+import { useAppContext } from 'provider/Provider';
 
 const SettingsModal = ({ closeModal }: Props) => {
   const {
     data: {
-      settings: { fullRosters, showNicknames, showTeamNames }
+      settings: { fullRosters, showNicknames, showTeamNames },
     },
-    dispatch
+    dispatch,
   } = useAppContext();
   const [showFullRosters, toggleFullRosters] = React.useState(fullRosters);
   const [showAllNicknames, toggleNicknames] = React.useState(showNicknames);
@@ -18,34 +18,34 @@ const SettingsModal = ({ closeModal }: Props) => {
     <Modal
       closeModal={() => {
         dispatch({
-          type: "UPDATE_SETTINGS",
+          type: 'UPDATE_SETTINGS',
           settings: {
             fullRosters: showFullRosters,
             showNicknames: showAllNicknames,
-            showTeamNames: showAllTeamNames
-          }
+            showTeamNames: showAllTeamNames,
+          },
         });
         closeModal();
       }}
-      title={"Settings"}
+      title={'Settings'}
     >
       <>
         <Toggle
-          label={"Show full rosters"}
+          label={'Show full rosters'}
           isSelected={showFullRosters}
           onToggle={() => {
             toggleFullRosters(!showFullRosters);
           }}
         />
         <Toggle
-          label={"Show team names"}
+          label={'Show team names'}
           isSelected={showAllTeamNames}
           onToggle={() => {
             toggleTeamNames(!showAllTeamNames);
           }}
         />
         <Toggle
-          label={"Show player nicknames"}
+          label={'Show player nicknames'}
           isSelected={showAllNicknames}
           onToggle={() => {
             toggleNicknames(!showAllNicknames);

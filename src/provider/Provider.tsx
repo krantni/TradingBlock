@@ -1,14 +1,14 @@
-import * as React from "react";
-import { TradingBlockData, TradingBlockActions } from "utils/types";
-import { initialData, tradingBlockReducer } from "./reducer";
-import getLeagueTradingBlock from "api";
+import * as React from 'react';
+import { TradingBlockData, TradingBlockActions } from 'utils/types';
+import { initialData, tradingBlockReducer } from './reducer';
+import getLeagueTradingBlock from 'api';
 
 export const AppContext = React.createContext<{
   data: TradingBlockData;
   dispatch: React.Dispatch<TradingBlockActions>;
 }>({
   data: initialData,
-  dispatch: () => {}
+  dispatch: () => {},
 });
 
 export const useAppContext = () => {

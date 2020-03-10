@@ -1,20 +1,20 @@
-import * as React from "react";
-import { TeamOwner } from "utils/types";
-import styles from "./Team.module.css";
-import { useAppContext } from "provider/Provider";
+import * as React from 'react';
+import { TeamOwner } from 'utils/types';
+import styles from './Team.module.css';
+import { useAppContext } from 'provider/Provider';
 
 const Team = ({ owner }: Props) => {
   const {
     data: {
-      settings: { fullRosters, showTeamNames, showNicknames }
-    }
+      settings: { fullRosters, showTeamNames, showNicknames },
+    },
   } = useAppContext();
 
   const players = fullRosters
     ? owner.players
     : owner.players.filter(player => player.isOnTradeBlock);
 
-  let currentPosition = "";
+  let currentPosition = '';
   return (
     <div className={styles.blockTeam}>
       <div className={styles.ownerAvatar}>
@@ -31,7 +31,7 @@ const Team = ({ owner }: Props) => {
           {players.map(player => {
             const insertPosition = player.position !== currentPosition;
             if (insertPosition) currentPosition = player.position;
-            const nickname = player.nickname.replace(/otb/gi, "");
+            const nickname = player.nickname.replace(/otb/gi, '');
             return (
               <div key={player.id} className={styles.playerRow}>
                 <span className={styles.position}>
@@ -39,7 +39,7 @@ const Team = ({ owner }: Props) => {
                 </span>
                 <span className={styles.name}>
                   {player.name}
-                  {showTeamNames && player.position !== "D/ST" && (
+                  {showTeamNames && player.position !== 'D/ST' && (
                     <small>{player.team}</small>
                   )}
                 </span>

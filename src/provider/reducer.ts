@@ -1,26 +1,26 @@
-import { TradingBlockData, TradingBlockActions, Settings } from "utils/types";
-import { getSettingsFromStorage, setStorage } from "utils/storage";
+import { TradingBlockData, TradingBlockActions, Settings } from 'utils/types';
+import { getSettingsFromStorage, setStorage } from 'utils/storage';
 
 export const initialData: TradingBlockData = {
-  leagueId: "",
-  leagueName: "",
+  leagueId: '',
+  leagueName: '',
   teamOwners: [],
-  route: "",
+  route: '',
   isLoading: false,
-  errorMessage: "",
-  settings: getSettingsFromStorage()
+  errorMessage: '',
+  settings: getSettingsFromStorage(),
 };
 
 export const tradingBlockReducer = (
   state: TradingBlockData = initialData,
-  action: TradingBlockActions
+  action: TradingBlockActions,
 ): TradingBlockData => {
   switch (action.type) {
-    case "SET_TRADING_BLOCK":
+    case 'SET_TRADING_BLOCK':
       window.history.pushState(
-        "",
+        '',
         action.leagueName,
-        window.location.origin + "/" + action.leagueId + window.location.search
+        window.location.origin + '/' + action.leagueId + window.location.search,
       );
       return {
         ...state,
@@ -28,45 +28,45 @@ export const tradingBlockReducer = (
         teamOwners: action.owners,
         leagueId: action.leagueId,
         route: action.leagueId,
-        isLoading: false
+        isLoading: false,
       };
-    case "UPDATE_SETTINGS":
+    case 'UPDATE_SETTINGS':
       const newSettings: Settings = {
         ...state.settings,
-        ...action.settings
+        ...action.settings,
       };
       setStorage(newSettings);
       return {
         ...state,
-        settings: newSettings
+        settings: newSettings,
       };
-    case "SET_LEAGUE_ID":
+    case 'SET_LEAGUE_ID':
       return {
         ...state,
-        leagueId: action.id
+        leagueId: action.id,
       };
-    case "CLEAR_ROUTE":
+    case 'CLEAR_ROUTE':
       window.history.pushState(
-        "",
-        "Trading Block",
-        window.location.origin + "/" + window.location.search
+        '',
+        'Trading Block',
+        window.location.origin + '/' + window.location.search,
       );
       return {
         ...state,
-        route: ""
+        route: '',
       };
-    case "SET_ERROR":
+    case 'SET_ERROR':
       return {
         ...state,
         isLoading: false,
-        errorMessage: action.error
+        errorMessage: action.error,
       };
-    case "SET_LOADING":
+    case 'SET_LOADING':
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
-    case "RESET":
+    case 'RESET':
       return initialData;
     default:
       return state;

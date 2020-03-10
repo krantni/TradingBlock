@@ -64,35 +64,35 @@ export type TradingBlockActions =
   | UpdateSettings;
 
 type SetTradingBlock = {
-  type: "SET_TRADING_BLOCK";
+  type: 'SET_TRADING_BLOCK';
   leagueName: string;
   owners: TeamOwner[];
   leagueId: string;
 };
 
 type SetLeagueId = {
-  type: "SET_LEAGUE_ID";
+  type: 'SET_LEAGUE_ID';
   id: string;
 };
 
 type ClearRoute = {
-  type: "CLEAR_ROUTE";
+  type: 'CLEAR_ROUTE';
 };
 
 type SetError = {
-  type: "SET_ERROR";
+  type: 'SET_ERROR';
   error: string;
 };
 
 type SetLoading = {
-  type: "SET_LOADING";
+  type: 'SET_LOADING';
 };
 
 type Reset = {
-  type: "RESET";
+  type: 'RESET';
 };
 
 type UpdateSettings = {
-  type: "UPDATE_SETTINGS";
+  type: 'UPDATE_SETTINGS';
   settings: Partial<Settings>;
 };

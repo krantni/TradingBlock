@@ -1,15 +1,15 @@
-import { Settings } from "./types";
+import { Settings } from './types';
 
 export const getSettingsFromStorage = (): Settings => {
   const storage = window.localStorage;
   return {
-    fullRosters: storage.getItem("fullRosters") === "true",
-    showNicknames: storage.getItem("showNicknames") === "true",
+    fullRosters: storage.getItem('fullRosters') === 'true',
+    showNicknames: storage.getItem('showNicknames') === 'true',
     showTeamNames:
-      storage.getItem("showTeamNames") === null
+      storage.getItem('showTeamNames') === null
         ? true
-        : storage.getItem("showTeamNames") === "true",
-    customNickname: storage.getItem("customNickname") || ""
+        : storage.getItem('showTeamNames') === 'true',
+    customNickname: storage.getItem('customNickname') || '',
   };
 };
 

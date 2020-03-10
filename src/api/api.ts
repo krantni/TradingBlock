@@ -76,7 +76,9 @@ const fetchLeagueRosters = (leagueId: string): Promise<Roster[]> => {
       if (serviceResponse.data && serviceResponse.data.length) {
         return serviceResponse.data.map(roster => {
           return {
-            players: mapPlayersToNickname(roster.players, roster.metadata).sort(sortPlayersByPosition),
+            players: mapPlayersToNickname(roster.players, roster.metadata).sort(
+              sortPlayersByPosition,
+            ),
             ownerID: roster.owner_id,
           };
         });

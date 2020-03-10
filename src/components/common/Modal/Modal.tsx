@@ -1,6 +1,6 @@
-import * as React from "react";
-import styles from "./Modal.module.css";
-import { ReactComponent as Close } from "images/close.svg";
+import * as React from 'react';
+import styles from './Modal.module.css';
+import { ReactComponent as Close } from 'images/close.svg';
 
 const Modal = ({ children, closeModal, title }: Props) => {
   return (

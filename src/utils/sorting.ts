@@ -1,5 +1,5 @@
-import { TeamOwner, Player } from "./types";
-import { positionsRanked } from "constants/positions";
+import { TeamOwner, Player } from './types';
+import { positionsRanked } from 'constants/positions';
 
 export const sortTeamOwners = (teamA: TeamOwner, teamB: TeamOwner) => {
   const playersOnBlockA = teamA.players.filter(player => player.isOnTradeBlock).length;
