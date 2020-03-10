@@ -6,7 +6,7 @@ import { useAppContext } from "provider/Provider";
 const Team = ({ owner }: Props) => {
   const {
     data: {
-      settings: { fullRosters }
+      settings: { fullRosters, showTeamNames, showNicknames }
     }
   } = useAppContext();
 
@@ -31,6 +31,7 @@ const Team = ({ owner }: Props) => {
           {players.map(player => {
             const insertPosition = player.position !== currentPosition;
             if (insertPosition) currentPosition = player.position;
+            const nickname = player.nickname.replace(/otb/gi, "");
             return (
               <div key={player.id} className={styles.playerRow}>
                 <span className={styles.position}>
@@ -38,8 +39,13 @@ const Team = ({ owner }: Props) => {
                 </span>
                 <span className={styles.name}>
                   {player.name}
-                  {player.position !== "D/ST" && <small>{player.team}</small>}
+                  {showTeamNames && player.position !== "D/ST" && (
+                    <small>{player.team}</small>
+                  )}
                 </span>
+                {showNicknames && nickname && (
+                  <span className={styles.nickname}>{nickname}</span>
+                )}
               </div>
             );
           })}

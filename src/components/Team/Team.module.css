@@ -34,7 +34,8 @@
 .playerRow{
   width: 100%;
   display: flex;
-  padding: 2px;
+  padding: 3px;
+  flex-wrap: wrap;
 }
 
 .position {
@@ -42,6 +43,11 @@
 }
 .name {
   flex: 1;
+}
+
+.nickname {
+  padding-left: 15%;
+  flex: 0 0 100%;
 }
 
 small {

@@ -6,12 +6,13 @@ import { useAppContext } from "provider/Provider";
 const SettingsModal = ({ closeModal }: Props) => {
   const {
     data: {
-      settings: { fullRosters, showNicknames }
+      settings: { fullRosters, showNicknames, showTeamNames }
     },
     dispatch
   } = useAppContext();
   const [showFullRosters, toggleFullRosters] = React.useState(fullRosters);
   const [showAllNicknames, toggleNicknames] = React.useState(showNicknames);
+  const [showAllTeamNames, toggleTeamNames] = React.useState(showTeamNames);
 
   return (
     <Modal
@@ -19,7 +20,9 @@ const SettingsModal = ({ closeModal }: Props) => {
         dispatch({
           type: "UPDATE_SETTINGS",
           settings: {
-            fullRosters: showFullRosters
+            fullRosters: showFullRosters,
+            showNicknames: showAllNicknames,
+            showTeamNames: showAllTeamNames
           }
         });
         closeModal();
@@ -32,6 +35,13 @@ const SettingsModal = ({ closeModal }: Props) => {
           isSelected={showFullRosters}
           onToggle={() => {
             toggleFullRosters(!showFullRosters);
+          }}
+        />
+        <Toggle
+          label={"Show team names"}
+          isSelected={showAllTeamNames}
+          onToggle={() => {
+            toggleTeamNames(!showAllTeamNames);
           }}
         />
         <Toggle

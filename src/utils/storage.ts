@@ -5,6 +5,10 @@ export const getSettingsFromStorage = (): Settings => {
   return {
     fullRosters: storage.getItem("fullRosters") === "true",
     showNicknames: storage.getItem("showNicknames") === "true",
+    showTeamNames:
+      storage.getItem("showTeamNames") === null
+        ? true
+        : storage.getItem("showTeamNames") === "true",
     customNickname: storage.getItem("customNickname") || ""
   };
 };
