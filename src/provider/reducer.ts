@@ -1,5 +1,5 @@
 import { TradingBlockData, TradingBlockActions, Settings } from "utils/types";
-import { getSettingsFromQueryString, setQueryParams } from "utils/queryParams";
+import { getSettingsFromStorage, setStorage } from "utils/storage";
 
 export const initialData: TradingBlockData = {
   leagueId: "",
@@ -8,7 +8,7 @@ export const initialData: TradingBlockData = {
   route: "",
   isLoading: false,
   errorMessage: "",
-  settings: getSettingsFromQueryString()
+  settings: getSettingsFromStorage()
 };
 
 export const tradingBlockReducer = (
@@ -31,14 +31,14 @@ export const tradingBlockReducer = (
         isLoading: false
       };
     case "UPDATE_SETTINGS":
-      const newQueryParams: Settings = {
+      const newSettings: Settings = {
         ...state.settings,
         ...action.settings
       };
-      setQueryParams(newQueryParams);
+      setStorage(newSettings);
       return {
         ...state,
-        settings: newQueryParams
+        settings: newSettings
       };
     case "SET_LEAGUE_ID":
       return {
