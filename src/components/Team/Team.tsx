@@ -13,8 +13,10 @@ const Team = ({ owner }: Props) => {
   const players = fullRosters
     ? owner.players
     : owner.players.filter(player => player.isOnTradeBlock);
+
+  let currentPosition = "";
   return (
-    <div className={styles.team}>
+    <div className={styles.blockTeam}>
       <div className={styles.ownerAvatar}>
         {owner.avatarID && (
           <img
@@ -27,13 +29,18 @@ const Team = ({ owner }: Props) => {
       <div className={styles.tradingBlock}>
         <div className={styles.playerContainer}>
           {players.map(player => {
-            if (player.position === "D/ST") {
-              return <div key={player.id}>{`${player.name} - ${player.position}`}</div>;
-            }
+            const insertPosition = player.position !== currentPosition;
+            if (insertPosition) currentPosition = player.position;
             return (
-              <div
-                key={player.id}
-              >{`${player.name} - ${player.position} - ${player.team}`}</div>
+              <div key={player.id} className={styles.playerRow}>
+                <span className={styles.position}>
+                  {insertPosition && player.position}
+                </span>
+                <span className={styles.name}>
+                  {player.name}
+                  {player.position !== "D/ST" && <small>{player.team}</small>}
+                </span>
+              </div>
             );
           })}
         </div>
