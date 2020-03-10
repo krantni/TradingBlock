@@ -1,15 +1,15 @@
-import * as React from "react";
-import Header from ".";
-import { render } from "@testing-library/react";
-import Provider from "provider/Provider";
+import * as React from 'react';
+import Header from '.';
+import { render } from '@testing-library/react';
+import Provider from 'provider/Provider';
 
-describe("Header", () => {
-  it("renders", () => {
+describe('Header', () => {
+  it('renders', () => {
     const header = render(
       <Provider>
         <Header />
-      </Provider>
+      </Provider>,
     );
-    expect(header.getByText("The Trading Block")).toBeTruthy();
+    expect(header.getByText('The Trading Block')).toBeTruthy();
   });
 });

@@ -8,7 +8,7 @@
 }
 
 .sideObject {
-    width: 180px;
+    width: 32px;
 }
 
 .arrow {
@@ -26,3 +26,12 @@
 .title > h3 {
     margin-top: 0px;
 }
+
+@media screen and (max-width: 500px) {
+    .header {
+        display: flex;
+        padding-left: 20px;
+        padding-right: 20px;
+        align-items: flex-end;
+    }
+  }

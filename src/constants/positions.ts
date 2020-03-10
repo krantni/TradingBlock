@@ -7,7 +7,7 @@ export const positionsRanked = {
   K: 6,
   P: 7,
   LS: 8,
-  "D/ST": 9,
+  'D/ST': 9,
   DL: 10,
   DE: 11,
   OLB: 12,
@@ -19,5 +19,5 @@ export const positionsRanked = {
   G: 18,
   OT: 19,
   NT: 10,
-  C: 21
+  C: 21,
 };
