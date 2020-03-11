@@ -21,11 +21,13 @@ export const mapPlayersToNickname = (
       throw new Error("Hmm.. I didn't find a player you have in your league.");
     }
 
+    const regex = new RegExp(/otb/gi);
+
     return {
       id: playerID,
       name: playerIDObject[playerID].name,
       nickname: nickName,
-      isOnTradeBlock: nickName.toUpperCase() === 'OTB',
+      isOnTradeBlock: regex.test(nickName),
       team: playerIDObject[playerID].team,
       position: playerIDObject[playerID].position,
     };
