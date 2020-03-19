@@ -1,4 +1,5 @@
 import * as React from 'react';
+import ReactGA from 'react-ga';
 import { TradingBlockData, TradingBlockActions } from 'utils/types';
 import { initialData, tradingBlockReducer } from './reducer';
 import getLeagueTradingBlock from 'api';
@@ -21,6 +22,7 @@ const Provider = ({ children }: Props) => {
   const [data, dispatch] = React.useReducer(tradingBlockReducer, initialData);
 
   React.useEffect(() => {
+    ReactGA.initialize('G-R50ZEBT4DG');
     if (pathname) {
       getLeagueTradingBlock(pathname.trim(), dispatch);
     }

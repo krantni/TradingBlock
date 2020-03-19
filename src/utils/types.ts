@@ -51,7 +51,7 @@ export type Settings = {
   fullRosters: boolean;
   showNicknames: boolean;
   showTeamNames: boolean;
-  customNickname: string;
+  // customNickname: string;
 };
 
 export type TradingBlockActions =

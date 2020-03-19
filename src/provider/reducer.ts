@@ -1,5 +1,6 @@
 import { TradingBlockData, TradingBlockActions, Settings } from 'utils/types';
 import { getSettingsFromStorage, setStorage } from 'utils/storage';
+import { logSettings } from 'utils/googleAnalytics';
 
 export const initialData: TradingBlockData = {
   leagueId: '',
@@ -36,6 +37,7 @@ export const tradingBlockReducer = (
         ...action.settings,
       };
       setStorage(newSettings);
+      logSettings(newSettings);
       return {
         ...state,
         settings: newSettings,

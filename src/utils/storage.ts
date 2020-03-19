@@ -9,7 +9,7 @@ export const getSettingsFromStorage = (): Settings => {
       storage.getItem('showTeamNames') === null
         ? true
         : storage.getItem('showTeamNames') === 'true',
-    customNickname: storage.getItem('customNickname') || '',
+    // customNickname: storage.getItem('customNickname') || '',
   };
 };
 
