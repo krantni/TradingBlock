@@ -5,6 +5,9 @@
   grid-auto-rows: min-content;
   grid-row-gap: 10px;
   padding-bottom: 20px;
+  padding-top: 20px;
+  background-color: #3f4d5a;
+
 }
 
 .teamContainer {
