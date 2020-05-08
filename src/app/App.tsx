@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from './App.module.css';
-import TradingBlock from 'components/TradingBlock';
 import Intro from 'components/Intro';
 import { Spinner } from 'components/common';
 import ErrorModal from 'components/ErrorModal';
 import { useAppContext } from 'provider/Provider';
 import Header from 'components/Header';
+import Content from 'views/Content';
 
 const App = () => {
   const {
-    data: { teamOwners, leagueId, route, isLoading, errorMessage },
+    data: { leagueId, route, isLoading, errorMessage },
     dispatch,
   } = useAppContext();
 
@@ -17,7 +17,7 @@ const App = () => {
     <div className={styles.container}>
       <Header />
       {route === '' && <Intro />}
-      {route !== '' && <TradingBlock teamOwners={teamOwners} />}
+      {route !== '' && <Content />}
       {isLoading && <Spinner />}
       {errorMessage && (
         <ErrorModal

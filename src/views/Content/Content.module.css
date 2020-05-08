@@ -1,0 +1,30 @@
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
+
+.tab {
+  flex-grow: 1;
+  cursor: pointer;
+  display: flex;
+  border:2px solid white;
+  border-bottom:0;
+  border-radius: 10px 10px 0 0;
+  justify-content: center;
+}
+
+.flexGrow1 {
+  flex-grow: 1;
+  border-bottom:2px solid white;
+}
+
+.flexGrow2 {
+  flex-grow: 2;
+  border-bottom:2px solid white;
+}
