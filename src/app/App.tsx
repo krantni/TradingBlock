@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './App.module.css';
-import Intro from 'components/Intro';
+import Intro from 'views/Intro';
 import { Spinner } from 'components/common';
 import ErrorModal from 'components/ErrorModal';
 import { useAppContext } from 'provider/Provider';
